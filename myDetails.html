@@ -1,0 +1,190 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>NYC Loop</title>
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<script src="http://www.parsecdn.com/js/parse-1.2.9.min.js"></script>
+
+
+	<script type="application/x-javascript"> Parse.initialize("sCJQZowpJLQmIaIjqFFndEXaF2RHJKtlgSbb8hnW", "TSqCucuGYjCzkDu5xtwMztytzIu2jcKrZMCNK4s2"); addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<meta name="keywords" content="NYC Loop" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+	<link rel="stylesheet" href="css/slider.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
+
+
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+
+
+	<script src="js/mobile.js"></script>
+	<script>
+
+	function getParameterByName(name) {
+		name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+		var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		results = regex.exec(location.search);
+		return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+	var id = getParameterByName("id");
+	$(function() {
+		var pull 		= $('#pull');
+		menu 		= $('nav ul');
+		menuHeight	= menu.height();
+
+		$(pull).on('click', function(e) {
+			e.preventDefault();
+			menu.slideToggle();
+		});
+
+		$(window).resize(function(){
+			var w = $(window).width();
+			if(w > 320 && menu.is(':hidden')) {
+				menu.removeAttr('style');
+			}
+		});
+		var UserEvent = Parse.Object.extend("UserEvent");
+		var query = new Parse.Query(UserEvent);
+		query.get(id, {
+			success: function(results) {
+
+	    // Do something with the returned Parse.Object values
+	    $('#eventname').text(results.get('name'));
+	    $('#eventinfo').text(results.get('description'));
+	    // $('#eventphoto').attr('src', results.get('picture').url());
+	    $('#eventlocation').text('Location: '+ results.get('location'));
+	    $('#eventdate').text('Date: '+ results.get('date'));
+	    $('#eventtime').text('Time: '+ results.get('time'));
+	    //$('#eventlink').text(results.get('link'));
+	    $('#eventlink').attr("href", results.get('link'));
+
+	},
+	error: function(error) {
+		alert("Error: " + error.code + " " + error.message);
+	}
+});
+	// var testObject = new event();
+	// testObject.save({Name: "Fencing"}, {
+	/*  success: function(object) {
+	    alert("yay! it worked");
+  } 
+}); */
+});
+
+
+</script>
+<link rel="stylesheet" href="js/sidr/stylesheets/jquery.sidr.dark.css"/>
+</head>
+<body>
+
+	<div class="header">  	
+		<div id="fixed">
+			<div class="header_top">
+				<div class="wrap">
+					<div class="logo">
+						<!-- logo-->
+					</div>
+
+					<div class="clear"></div>
+				</div>	
+			</div>
+
+			<!-- The main menu -->
+			<nav class="clearfix">
+				
+				<a href="#" id="simple-menu" ></a>
+				<ul>
+
+					<li class="active"><a href="home.html">Events</a></li>
+					<li><a href="about.html">Profile</a></li>
+					<li><a href="services.html">Calendar</a></li>
+					<li><a href="gallery.html">Settings</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+
+			</nav>
+		</div>
+
+
+		<div id="sidr">
+			<!-- Your content -->
+			<ul>
+				<li><img src="images/newlogo.gif"></li>
+				<li class="active"><a href="home.html">Events</a></li>
+
+				<li><a href="profile.html">Profile</a></li>
+				<li><a href="services.html">Calendar</a></li>
+				<li><a href="newevent.html">Create</a></li>
+				<li><a href="index.html">Logout</a></li>
+			</ul>
+		</div>
+
+		<div class="header-bottom">
+			<div class="wrap">
+				<div class="menu">
+					<ul>
+						<h1 id="eventname"></h1>
+
+						<div class="clear"></div>
+					</ul>
+				</div>
+
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="wrap">
+		<div class="main">
+			<div class="content">
+				
+				<div class="section group">
+					<img id="eventphoto" src="http://www.beaverutah.net/uploads/fb/recreation/img/calendar_icon1.png"/>
+
+					<div class="desc">
+						<p  id="eventinfo"></p>
+						<p id="eventlocation" style='font-weight: bold'></p>
+						<p id="eventdate" style='font-weight: bold'></p>
+						<p id="eventtime" style='font-weight: bold'></p>
+						<a id="eventlink" href="">More Info</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> 
+
+
+	<div class="footer">
+		<div class="wrap">
+			<div class="footer_grides">
+
+			</div>
+		</div>
+		<div class="copy_right">
+			<div class="wrap">
+				<p>NYC Loop © 2013 All Rights Reserved | Design by  NYC Loop</p>
+			</div>
+		</div>	
+
+	</div>
+
+
+	<!-- Include jQuery -->
+	<script src="js/jquery.js"></script>
+	<!-- Include the Sidr JS -->
+	<script src="js/sidr/jquery.sidr.min.js"></script>
+
+	<script>
+	$(document).ready(function() {
+		$('#simple-menu').sidr();
+	});
+	</script>
+</body>
+</html>
+

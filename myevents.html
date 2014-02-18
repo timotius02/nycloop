@@ -1,0 +1,208 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>NYC Loop</title>
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<script src="http://www.parsecdn.com/js/parse-1.2.9.min.js"></script>
+
+
+	<script type="application/x-javascript"> Parse.initialize("sCJQZowpJLQmIaIjqFFndEXaF2RHJKtlgSbb8hnW", "TSqCucuGYjCzkDu5xtwMztytzIu2jcKrZMCNK4s2"); addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<meta name="keywords" content="NYC Loop" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+	<link rel="stylesheet" href="css/slider.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
+
+
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+
+
+	<script src="js/mobile.js"></script>
+	<script>
+	
+	
+	$(function() {
+		var pull 		= $('#pull');
+		menu 		= $('nav ul');
+		menuHeight	= menu.height();
+
+		$(pull).on('click', function(e) {
+			e.preventDefault();
+			menu.slideToggle();
+		});
+
+		$(window).resize(function(){
+			var w = $(window).width();
+			if(w > 320 && menu.is(':hidden')) {
+				menu.removeAttr('style');
+			}
+		});
+	var UserEvent = Parse.Object.extend("UserEvent");
+	var query = new Parse.Query(UserEvent);
+	query.find({
+	  success: function(results) {
+	    
+	    // Do something with the returned Parse.Object values
+	    for (var i = 0; i < results.length; i++) { 
+	      var object = results[i];
+	      console.log (object.get('picture'));
+
+	      var copy = $('#template').clone();
+	      copy.attr('id', "");
+	      if (object.get('name')){
+	      	// copy.find('img').first().attr('src', object.get('picture').url());
+	      	copy.find('a').first().attr('href', 'myDetails.html?id=' + object.id);
+
+	      //$('.content').append($('<img src="' + object.get('image').url()+ '"> '));
+		    }
+		    $('.content').append(copy.show());
+	}
+	  },
+	  error: function(error) {
+	    alert("Error: " + error.code + " " + error.message);
+	  }
+});
+	// var testObject = new event();
+	// testObject.save({Name: "Fencing"}, {
+	/*  success: function(object) {
+	    alert("yay! it worked");
+  } 
+}); */
+	});
+
+	
+	</script>
+	<link rel="stylesheet" href="js/sidr/stylesheets/jquery.sidr.dark.css"/>
+</head>
+<body>
+
+	<div class="header">  	
+		<div id="fixed">
+			<div class="header_top">
+				<div class="wrap">
+					<div class="logo">
+						<!-- logo-->
+					</div>
+
+					<div class="clear"></div>
+				</div>	
+			</div>
+
+			<!-- The main menu -->
+			<nav class="clearfix">
+				
+				<a href="#" id="simple-menu" ></a>
+				<ul>
+
+					<li class="active"><a href="home.html">Events</a></li>
+					<li><a href="about.html">Profile</a></li>
+					<li><a href="services.html">Calendar</a></li>
+					<li><a href="gallery.html">Settings</a></li>
+					<li><a href="contact.html">Contact Us</a></li>
+				</ul>
+
+			</nav>
+		</div>
+		<div id="sidr">
+			<!-- Your content -->
+			<ul>
+				<li><img src="images/newlogo.gif"></li>
+				<li class="active"><a href="home.html">Events</a></li>
+
+					<li><a href="profile.html">Profile</a></li>
+					<li><a href="services.html">Calendar</a></li>
+					<li><a href="newevent.html">Create</a></li>
+					<li><a href="index.html">Logout</a></li>
+			</ul>
+		</div>
+
+		<div class="header-bottom">
+			<div class="wrap">
+				<div class="menu">
+					<ul>
+						<li><a href="home.html">Popular</a></li>
+						<li><a href="#">Recent</a></li>
+						<li class="active"><a href="myevents.html">My Events</a></li>
+
+						<div class="clear"></div>
+					</ul>
+				</div>
+
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="wrap">
+		<div class="main">
+			<div class="content">
+				
+					<div class="section group">
+						
+					</div>
+							
+								
+							</div>
+						</div>
+					</div>
+				
+
+			</div>
+		</div> 
+	</div>  
+	<div class="footer">
+		<div class="wrap">
+			<div class="footer_grides">
+
+			</div>
+		</div>
+		<div class="copy_right">
+			<div class="wrap">
+				<p>NYC Loop © 2013 All Rights Reserved | Design by  NYC Loop</p>
+			</div>
+		</div>	
+
+	</div>
+	<!-- scroll Top -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+	 		$().UItoTop({ easingType: 'easeOutQuart' });
+
+	 	});
+		</script>
+		<a href="#" id="toTop"><span id="toTopHover"> </span></a>
+
+	<!-- End scroll Top -->
+
+	<!-- Include jQuery -->
+	<script src="js/jquery.js"></script>
+	<!-- Include the Sidr JS -->
+	<script src="js/sidr/jquery.sidr.min.js"></script>
+
+	<script>
+$(document).ready(function() {
+  $('#simple-menu').sidr();
+});
+</script>
+
+
+				<div class="col_1_of_4 span_1_of_4" style="display:none" id="template">
+							<div class="num-heading">
+
+								<div class="clear"></div>
+							</div> 
+							<div class="events">
+								<p id="event-name" style="font-family: 'bebas_neueregular'; font-size: 35px;"></p>	
+								<a href=""><img src="http://www.beaverutah.net/uploads/fb/recreation/img/calendar_icon1.png"/></a>
+
+							</div>	
+						</div>
+</body>
+</html>

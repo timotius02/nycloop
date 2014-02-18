@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>NYC Loop</title>
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<meta name="keywords" content="NYC Loop" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+	<link rel="stylesheet" href="css/slider.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
+
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+
+
+	<script type="text/javascript">
+	$(window).load(function() {
+		$('#slider').nivoSlider();
+	});
+	</script>
+
+	<script src="js/mobile.js"></script>
+	<script>
+	$(function() {
+		var pull 		= $('#pull');
+		menu 		= $('nav ul');
+		menuHeight	= menu.height();
+
+		$(pull).on('click', function(e) {
+			e.preventDefault();
+			menu.slideToggle();
+		});
+
+		$(window).resize(function(){
+			var w = $(window).width();
+			if(w > 320 && menu.is(':hidden')) {
+				menu.removeAttr('style');
+			}
+		});
+	});
+	</script>
+
+</head>
+<body>
+
+		<div class="header">  	
+			<div id="fixed">
+				<div class="header_top">
+					<div class="wrap">
+						<div class="logo">
+							<!-- logo-->
+						</div>
+
+						<div class="clear"></div>
+					</div>	
+				</div>
+
+				<!-- The main menu -->
+				<nav class="clearfix">
+
+					<a href="#" id="pull"></a>
+					<ul>
+						<li class="active"><a href="index.html">Events</a></li>
+						<li><a href="about.html">Profile</a></li>
+						<li><a href="services.html">Calendar</a></li>
+						<li><a href="gallery.html">Settings</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+
+				</nav>
+			</div>
+			<div class="header-bottom">
+				<div class="wrap">
+					<div class="menu">
+						<ul>
+							
+
+							<div class="clear"></div>
+						</ul>
+					</div>
+
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="wrap">
+			<div class="main">
+				
+			</div> 
+		</div>  
+		<div class="footer">
+			<div class="wrap">
+				<div class="footer_grides">
+					
+				</div>
+			</div>
+			<div class="copy_right">
+				<div class="wrap">
+					<p>Company Name © 2013 All Rights Reserved | Design by  NYC Loop</p>
+				</div>
+			</div>	
+
+		</div>
+		<!-- scroll Top -->
+		<script type="text/javascript">
+		$(document).ready(function() {
+
+	 		$().UItoTop({ easingType: 'easeOutQuart' });
+
+	 	});
+		</script>
+		<a href="#" id="toTop"><span id="toTopHover"> </span></a>
+		<!-- End scroll Top -->
+	 
+</body>
+</html>

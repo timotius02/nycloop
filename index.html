@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>NYC Loop</title>
+	<link rel="stylesheet" type="text/css" href="css/loginstyle.css" />
+</head>
+<body>
+	<div class="container">
+		<img class="logo" src="images/newlogo.gif"/>
+		<section id="content">
+			<form action="">
+				<h1>Login Form</h1>
+				<div>
+					<input type="text" placeholder="Username" name="userid" required="" id="username" />
+				</div>
+				<div>
+					<input type="password" placeholder="Password" name="pswrd" required="" id="password" />
+				</div>
+					
+				<div>
+					<!--<input type="submit" value="Log in" onclick="check(this.form)"/>-->
+					<a href="home.html">Submit</a>
+
+				</div>
+				<img class="fb"src="images/fb.gif" alt="Facebook"/>
+			</form><!-- form -->
+
+		</section><!-- content -->
+	</div><!-- container -->
+
+	<script language="javascript">
+	function check(form)/*function to check userid & password*/
+	{
+		/*the following code checkes whether the entered userid and password are matching*/
+		if(form.userid.value == "nycloop" && form.pswrd.value == "gentechloop")
+		{
+			window.open('home.html')/*opens the target page while Id & password matches*/
+		}
+		else
+		{
+			alert("Error Password or Username")/*displays error message*/
+		}
+	}
+	</script>
+</body>
+</html>
